@@ -4,10 +4,11 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
+import { UserImgComponent } from './components/users/user-img/user-img.component';
 
 @NgModule({
   declarations: [     // Components, Pipes & Directives
-    AppComponent, UsersComponent
+    AppComponent, UsersComponent, UserImgComponent
   ],
   imports: [          // Modules - Built-in / Custom
     BrowserModule, FormsModule
