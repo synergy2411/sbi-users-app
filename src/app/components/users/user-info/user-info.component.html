@@ -4,8 +4,19 @@
 <ng-content select="#my-id"></ng-content>
 
 <h2>{{ user.firstName }} {{ user.lastName }}</h2>
-<p>Date of Birth : <span [innerText]="user.dob"></span></p>
-<p>Income : {{ user.income }}</p>
+
+<!-- <p [ngClass] = "['my-feature', 'my-border']">Date of Birth : <span [innerText]="user.dob"></span></p> -->
+
+<button class="btn btn-default btn-sm" (click)="onToggle()">Toggle Classes</button>
+<p [ngClass] = "dynamicClasses">
+  Date of Birth : <span [innerText]="user.dob"></span></p>
+
+<p [ngStyle]="myStyles" *ngIf="user.income > 0; else xyz">Income : {{ user.income }}</p>
+
+<!-- <ng-template [ngIf]="user.income > 0" >
+  <p>Income Desugar : {{ user.income }} </p>
+</ng-template> -->
+
 <p>
   Total Votes : {{ user.votes }}
   <input
@@ -15,5 +26,20 @@
   />
   <input type="number" [(ngModel)]="user.votes" />
 </p>
+
+<ng-template #xyz>
+  <p> Mr. {{user.lastName}} is not working now!</p>
+</ng-template>
+
+
+<!-- ngSwitch -->
+
+<!-- <div [ngSwitch]="'2'">
+  <div *ngSwitchCase="1">Output 1</div>
+  <div *ngSwitchCase="2">Output 2</div>
+  <div *ngSwitchCase="3">Output 3</div>
+  <div *ngSwitchDefault>Default output</div>
+</div> -->
+
 
 <ng-content select="footer"></ng-content>

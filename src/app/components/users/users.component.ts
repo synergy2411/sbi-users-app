@@ -11,11 +11,11 @@ export class UsersComponent implements OnInit{
 
   showComp : boolean = true;
 
-  user : User;
+  users : User[];
 
   constructor(){}
   ngOnInit(){
-    this.user = USER_DATA;
+    this.users = USER_DATA;
   }
 
   onMoreInfo(usr : User){

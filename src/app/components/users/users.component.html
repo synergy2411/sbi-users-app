@@ -1,8 +1,10 @@
 <h2>Users Component Template from HTML</h2>
 
 <ul class="list-group">
-  <li class="list-group-item">
+  <li class="list-group-item"
+  *ngFor="let user of users; index as idx; first as isFirst; last as isLast; even as isEven; odd as isOdd">
     <div class="row">
+      <!-- Index : {{ idx }} | isFirst : {{ isFirst}} | isEven : {{ isEven }} -->
       <div class="col-sm-3 col-md-3 text-center">
         <app-user-img [user]="user"
           (childEvent)="onMoreInfo($event)" ></app-user-img>

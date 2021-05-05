@@ -14,9 +14,18 @@ AfterViewInit, AfterViewChecked, OnDestroy {
 
   @Input() user : User;
   @Input() showComp : boolean;
-
+  dynamicClasses = {'my-feature' : true, 'my-border' : false};
+  myStyles = {
+    "background-color" : "yellow",
+    fontWeight : "bold"
+  }
   constructor(){
     // console.log("constructor");
+  }
+
+  onToggle(){
+    this.dynamicClasses['my-border'] = !this.dynamicClasses['my-border']
+    this.dynamicClasses['my-feature'] = !this.dynamicClasses['my-feature']
   }
 
   ngOnChanges(changes : SimpleChanges){
