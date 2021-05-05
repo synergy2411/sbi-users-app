@@ -3,7 +3,8 @@
 <ng-content select=".main-content"></ng-content>
 <ng-content select="#my-id"></ng-content>
 
-<h2>{{ user.firstName }} {{ user.lastName }}</h2>
+<!-- <h2 appHighlight>{{ user.firstName }} {{ user.lastName }}</h2> -->
+<h2 appBetterHighlight [favColor]="'darkgrey'">{{ user.firstName }} {{ user.lastName }}</h2>
 
 <!-- <p [ngClass] = "['my-feature', 'my-border']">Date of Birth : <span [innerText]="user.dob"></span></p> -->
 
