@@ -9,7 +9,7 @@
       </div>
       <div class="col-sm-9 col-md-9">
         <button (click) = "showComp = !showComp">Toggle User Info</button>
-        <app-user-info [user]="user" *ngIf="showComp">
+        <app-user-info [user]="user" [showComp] = "showComp" >
           <!-- <header>Some Header Info</header>
           <main class="main-content">Some Main contents available1</main>
           <main class="main-content">Some Main contents available2</main>
