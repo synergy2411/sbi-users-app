@@ -1,0 +1,19 @@
+<ng-content select="header"></ng-content>
+
+<ng-content select=".main-content"></ng-content>
+<ng-content select="#my-id"></ng-content>
+
+<h2>{{ user.firstName }} {{ user.lastName }}</h2>
+<p>Date of Birth : <span [innerText]="user.dob"></span></p>
+<p>Income : {{ user.income }}</p>
+<p>
+  Total Votes : {{ user.votes }}
+  <input
+    type="number"
+    [value]="user.votes"
+    (input)="user.votes = $event.target.value"
+  />
+  <input type="number" [(ngModel)]="user.votes" />
+</p>
+
+<ng-content select="footer"></ng-content>

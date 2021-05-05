@@ -7,6 +7,9 @@ import { User } from 'src/app/model/user';
   styleUrls : [`./users.component.css`]
 })
 export class UsersComponent{
+
+  showComp : boolean = true;
+
   user : User = {
     firstName : "Bill",
     lastName : "Gates",
