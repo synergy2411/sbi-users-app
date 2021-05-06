@@ -8,6 +8,8 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
+  username : string = "";
+
   onLogin(f : NgForm){
     console.log(f);
   }
