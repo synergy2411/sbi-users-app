@@ -1,2 +1,25 @@
-<h1>Promise : {{ promise | async}}</h1>
-<h2>Contact Number : {{ contact_number | countryCode  }} </h2>
+<h1>Promise : {{ promise | async | uppercase}}</h1>
+<h2>Contact Number : {{ contact_number | countryCode : 'USA' : true }} </h2>
+
+
+<div class="row">
+  <div class="col-6">
+    <button class="btn btn-block btn-primary"
+      (click)="onAddNewItem()">Add New Item</button>
+  </div>
+  <div class="col-6">
+    <select [(ngModel)] = "filteredStatus" class="form-control">
+      <option value="done">Done Tasks</option>
+      <option value="pending">Pending Tasks</option>
+    </select>
+  </div>
+</div>
+
+<ul class="list-group">
+  <li class="list-group-item"
+   *ngFor="let todo of todoList | filter : filteredStatus">
+    <p> {{todo.label | titlecase }}
+      <span class="badge badge-dark float-right">{{ todo.status }}</span>
+    </p>
+  </li>
+</ul>

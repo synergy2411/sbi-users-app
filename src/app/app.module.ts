@@ -11,6 +11,7 @@ import { BetterHighlightDirective } from './directives/better-highlight.directiv
 import { DelayDirective } from './directives/delay.directive';
 import { PipeDemoComponent } from './components/pipe-demo/pipe-demo.component';
 import { CountryCodePipe } from './pipes/country-code.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [     // Components, Pipes & Directives
@@ -19,7 +20,8 @@ import { CountryCodePipe } from './pipes/country-code.pipe';
     BetterHighlightDirective,
     DelayDirective,
     PipeDemoComponent,
-    CountryCodePipe
+    CountryCodePipe,
+    FilterPipe
   ],
   imports: [          // Modules - Built-in / Custom
     BrowserModule, FormsModule

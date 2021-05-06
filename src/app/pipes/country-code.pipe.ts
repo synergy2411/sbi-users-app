@@ -5,8 +5,10 @@ import { Pipe, PipeTransform } from "@angular/core";
 })
 export class CountryCodePipe implements PipeTransform {
 
-  transform(value: number, code : string) : string{
-    switch (code) {
+  transform(value: number, ...code : Array<any>) : string{
+    // console.log(code[1]);
+
+    switch (code[0]) {
       case 'USA':
         return "+1 " + value;
       case 'AUS':
