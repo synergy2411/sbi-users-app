@@ -12,6 +12,7 @@ import { DelayDirective } from './directives/delay.directive';
 import { PipeDemoComponent } from './components/pipe-demo/pipe-demo.component';
 import { CountryCodePipe } from './pipes/country-code.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
+import { LoginComponent } from './components/auth/login/login.component';
 
 @NgModule({
   declarations: [     // Components, Pipes & Directives
@@ -21,7 +22,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     DelayDirective,
     PipeDemoComponent,
     CountryCodePipe,
-    FilterPipe
+    FilterPipe,
+    LoginComponent
   ],
   imports: [          // Modules - Built-in / Custom
     BrowserModule, FormsModule

@@ -10,8 +10,7 @@ export class FilterPipe implements PipeTransform {
     filteredStatus: string
   ): Array<{ label: string; status: string }> {
 
-    console.log("[TRANSFORM]");
-
+    // console.log("[TRANSFORM]");
 
     if(value.length == 0 || filteredStatus == ""){
       return value;
