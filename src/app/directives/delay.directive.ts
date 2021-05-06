@@ -5,12 +5,12 @@ import { Directive, Input, OnInit, TemplateRef, ViewContainerRef } from '@angula
 })
 export class DelayDirective implements OnInit{
 
-  @Input() set appDelay(duration : number){}
+  @Input() set appDelay(duration : number){  }
 
   constructor(
     private templateRef : TemplateRef<any>,
     private vcref : ViewContainerRef) {
-      console.log(this.templateRef, this.vcref);
+      // console.log(this.templateRef, this.vcref);
     }
 
     ngOnInit(){

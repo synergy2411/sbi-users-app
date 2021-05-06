@@ -9,13 +9,17 @@ import { UserInfoComponent } from './components/users/user-info/user-info.compon
 import { HighlightDirective } from './directives/highlight.directive';
 import { BetterHighlightDirective } from './directives/better-highlight.directive';
 import { DelayDirective } from './directives/delay.directive';
+import { PipeDemoComponent } from './components/pipe-demo/pipe-demo.component';
+import { CountryCodePipe } from './pipes/country-code.pipe';
 
 @NgModule({
   declarations: [     // Components, Pipes & Directives
     AppComponent, UsersComponent, UserImgComponent, UserInfoComponent,
     HighlightDirective,
     BetterHighlightDirective,
-    DelayDirective
+    DelayDirective,
+    PipeDemoComponent,
+    CountryCodePipe
   ],
   imports: [          // Modules - Built-in / Custom
     BrowserModule, FormsModule

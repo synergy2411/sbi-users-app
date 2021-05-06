@@ -3,10 +3,13 @@
 <ng-content select=".main-content"></ng-content>
 <ng-content select="#my-id"></ng-content>
 
-<!-- <h2 appHighlight>{{ user.firstName }} {{ user.lastName }}</h2> -->
-<h2 appBetterHighlight [favColor]="'darkgrey'">{{ user.firstName }} {{ user.lastName }}</h2>
+<!-- {{ user | json }} -->
 
-<h3 *appDelay="3000">Delayed Contents</h3>
+<!-- <h2 appHighlight>{{ user.firstName }} {{ user.lastName }}</h2> -->
+<h2 appBetterHighlight [favColor]="'darkgrey'">
+  {{ user.firstName | uppercase }} {{ user.lastName | uppercase}}</h2>
+<!--
+<h3 *appDelay="3000">Delayed Contents</h3> -->
 
 <!-- <ng-template [appDelay] = "3000">
   <h3>Delayed Contents</h3>
@@ -17,9 +20,10 @@
 
 <button class="btn btn-default btn-sm" (click)="onToggle()">Toggle Classes</button>
 <p [ngClass] = "dynamicClasses">
-  Date of Birth : <span [innerText]="user.dob"></span></p>
+  Date of Birth : <span [innerText]="user.dob | date : 'dd/MM/yyyy'"></span></p>
 
-<p [ngStyle]="myStyles" *ngIf="user.income > 0; else xyz">Income : {{ user.income }}</p>
+<p [ngStyle]="myStyles" *ngIf="user.income > 0; else xyz">
+    Income : {{ user.income | currency : 'INR'}}</p>
 
 <!-- <ng-template [ngIf]="user.income > 0" >
   <p>Income Desugar : {{ user.income }} </p>
