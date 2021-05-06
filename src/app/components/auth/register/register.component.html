@@ -19,6 +19,17 @@
                 [formControl] = "username">
             </div>
           </div>
+          <div [hidden] = "username.valid || username.untouched">
+            <div class="alert alert-danger">
+             <!-- <p> * Some problem with username field.</p> -->
+             <div [hidden] = "!username.hasError('required')">
+               <p> - Username is mandatory field.</p>
+             </div>
+             <div [hidden] = "!username.hasError('email')">
+               <p> - Username field should follow email pattern.</p>
+             </div>
+          </div>
+          </div>
         </div>
         <!-- Password -->
         <div class="form-group">
@@ -31,13 +42,22 @@
               [formControl]="password">
             </div>
           </div>
+          <div [hidden]= "password.valid || password.untouched">
+            <div [hidden] = "!password.hasError('required')">
+              <p class="alert alert-danger">- Password is mandatory field.</p>
+            </div>
+            <div [hidden] = "!password.hasError('minlength')">
+              <p class="alert alert-danger">- Password should contain 6 characters atleast.</p>
+            </div>
+          </div>
         </div>
         <!-- Buttons -->
         <div class="form-group">
           <div class="row">
             <div class="col-6">
               <button class="btn btn-success btn-block"
-               (click) = "onRegister()">Register</button>
+               (click) = "onRegister()"
+               [disabled]="!registerForm.valid">Register</button>
             </div>
             <div class="col-6">
               <button class="btn btn-warning btn-block"
