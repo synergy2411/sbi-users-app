@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'users-app';
+
+  constructor(public dataService : DataService){}
+
+  onIncrease(){
+    this.dataService.counter++;
+  }
 }

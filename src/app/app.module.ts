@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
@@ -14,6 +15,7 @@ import { CountryCodePipe } from './pipes/country-code.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
+import { DataService } from './services/data.service';
 
 @NgModule({
   declarations: [     // Components, Pipes & Directives
@@ -28,9 +30,9 @@ import { RegisterComponent } from './components/auth/register/register.component
     RegisterComponent
   ],
   imports: [          // Modules - Built-in / Custom
-    BrowserModule, FormsModule, ReactiveFormsModule
+    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule
   ],
-  providers: [],      // Services
+  providers: [ ],      // Services
   bootstrap: [AppComponent]
 })
 export class AppModule { }

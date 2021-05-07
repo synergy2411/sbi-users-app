@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/model/user';
-import { USER_DATA } from '../../model/mocks';
+import { DataService } from 'src/app/services/data.service';
+// import { USER_DATA } from '../../model/mocks';
 
 @Component({
   selector : "app-users",
   templateUrl : `./users.component.html`,
-  styleUrls : [`./users.component.css`]
+  styleUrls : [`./users.component.css`],
+  // providers : [DataService]
 })
 export class UsersComponent implements OnInit{
 
@@ -13,9 +15,16 @@ export class UsersComponent implements OnInit{
 
   users : User[];
 
-  constructor(){}
+  constructor(public dataService : DataService){}
+
+  onDecrease(){
+    this.dataService.counter--;
+  }
+
   ngOnInit(){
-    this.users = USER_DATA;
+    // this.users = USER_DATA;
+    this.users = this.dataService.getUserData();
+    this.dataService.getUserDataFromServer();
   }
 
   onMoreInfo(usr : User){
