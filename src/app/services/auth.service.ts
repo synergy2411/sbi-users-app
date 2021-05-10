@@ -25,10 +25,10 @@ export class AuthService {
 
     firebase.default.auth().signInWithEmailAndPassword(email, password)
       .then(response => {
-        console.log("[LOGIN SUCCESS]", response);
+        // console.log("[LOGIN SUCCESS]", response);
         firebase.default.auth().currentUser.getIdToken()
           .then(token => {
-            console.log("[TOKEN]", token);
+            // console.log("[TOKEN]", token);
             this.token = token;
           })
       }).catch(err => console.log(err))

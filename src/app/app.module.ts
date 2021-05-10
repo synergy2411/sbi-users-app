@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
@@ -15,8 +15,9 @@ import { CountryCodePipe } from './pipes/country-code.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
-import { DataService } from './services/data.service';
 import { ObservableDemoComponent } from './components/observable-demo/observable-demo.component';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { LoggerInterceptorService } from './services/logger-interceptor.service';
 
 @NgModule({
   declarations: [     // Components, Pipes & Directives
@@ -34,7 +35,18 @@ import { ObservableDemoComponent } from './components/observable-demo/observable
   imports: [          // Modules - Built-in / Custom
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule
   ],
-  providers: [ ],      // Services
+  providers: [
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : AuthInterceptorService,
+      multi : true
+    },
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : LoggerInterceptorService,
+      multi : true
+    }
+   ],      // Services
   bootstrap: [AppComponent]
 })
 export class AppModule { }
