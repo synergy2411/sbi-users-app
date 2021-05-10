@@ -6,11 +6,9 @@
   <!-- <app-observable-demo></app-observable-demo> -->
 
   <app-login></app-login>
-  <app-register></app-register>
-
-
+  <!-- <app-register></app-register> -->
 
   <!-- <app-pipe-demo></app-pipe-demo> -->
 
-  <!-- <app-users></app-users> -->
+  <app-users *ngIf="authService.isAuthenticated()"></app-users>
 </div>
