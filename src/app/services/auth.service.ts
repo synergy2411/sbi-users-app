@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 
 @Injectable({
@@ -9,7 +10,7 @@ export class AuthService {
   // randomToken : string = null;
   private token : string = null;
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   onRegister(email : string, password : string){
 
@@ -30,6 +31,7 @@ export class AuthService {
           .then(token => {
             // console.log("[TOKEN]", token);
             this.token = token;
+            this.router.navigate(['/users']);
           })
       }).catch(err => console.log(err))
 
@@ -51,6 +53,18 @@ export class AuthService {
 
   getToken() : string{
     return this.token;
+  }
+
+  logout(){
+
+    // localStorage.removeItem("users");
+
+    firebase.default.auth().signOut()
+      .then(() => {
+        this.token = null;
+        this.router.navigate(['/login']);
+      })
+      .catch(err => console.log(err))
   }
 
 }

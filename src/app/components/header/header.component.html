@@ -1,20 +1,34 @@
-<header>
-  <nav class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link" [ngClass]="{active : tab===1}"
-        (click)="tab=1" [routerLink]="['login']">Login</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" [ngClass]="{active : tab===2}"
-      (click)="tab=2"  [routerLink]="['register']">Register</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" [ngClass]="{active : tab===3}"
-      (click)="tab=3"  [routerLink]="['pipe-demo']">Pipe Demo</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" [ngClass]="{active : tab===4}"
-      (click)="tab=4"  [routerLink]="['observable-demo']">Observbale</a>
-    </li>
-  </nav>
-</header>
+<div class="row">
+  <div class="col-10">
+    <header>
+      <nav class="nav nav-tabs">
+        <li class="nav-item" *ngIf="!authService.isAuthenticated()">
+          <a class="nav-link" [ngClass]="{active : tab===1}"
+            (click)="tab=1" [routerLink]="['login']">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="!authService.isAuthenticated()">
+          <a class="nav-link" [ngClass]="{active : tab===2}"
+          (click)="tab=2"  [routerLink]="['register']">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [ngClass]="{active : tab===3}"
+          (click)="tab=3"  [routerLink]="['pipe-demo']">Pipe Demo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [ngClass]="{active : tab===4}"
+          (click)="tab=4"  [routerLink]="['observable-demo']">Observbale</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [ngClass]="{active : tab===5}"
+          (click)="tab=5"  [routerLink]="['users']">Users</a>
+        </li>
+      </nav>
+    </header>
+  </div>
+  <div class="col-2">
+    <button class="btn btn-danger btn-sm"
+     *ngIf="authService.isAuthenticated()"
+     (click) = "onLogout()">Logout</button>
+  </div>
+</div>
+
