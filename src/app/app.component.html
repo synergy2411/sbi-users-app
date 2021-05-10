@@ -1,14 +1,21 @@
 <div class="container">
+
+  <app-header></app-header>
+  <br>
   <h1 class="text-center">HELLO ANGULAR</h1>
+
+
+  <router-outlet></router-outlet>
+
   <!-- <h3>Counter : {{ dataService.counter }}</h3>
   <button class="btn btn-sm btn-default" (click) = "onIncrease()">Increase</button> -->
 
   <!-- <app-observable-demo></app-observable-demo> -->
 
-  <app-login></app-login>
+  <!-- <app-login></app-login> -->
   <!-- <app-register></app-register> -->
 
   <!-- <app-pipe-demo></app-pipe-demo> -->
 
-  <app-users *ngIf="authService.isAuthenticated()"></app-users>
+  <!-- <app-users *ngIf="authService.isAuthenticated()"></app-users> -->
 </div>
