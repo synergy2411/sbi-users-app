@@ -21,6 +21,9 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { LoggerInterceptorService } from './services/logger-interceptor.service';
 import { APP_ROUTES } from './app.routes';
 import { HeaderComponent } from './components/header/header.component';
+import { ProductComponent } from './components/product/product.component';
+import { OverviewComponent } from './components/product/overview/overview.component';
+import { SpecificationComponent } from './components/product/specification/specification.component';
 
 @NgModule({
   declarations: [     // Components, Pipes & Directives
@@ -34,7 +37,10 @@ import { HeaderComponent } from './components/header/header.component';
     LoginComponent,
     RegisterComponent,
     ObservableDemoComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProductComponent,
+    OverviewComponent,
+    SpecificationComponent
   ],
   imports: [          // Modules - Built-in / Custom
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,

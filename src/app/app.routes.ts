@@ -3,6 +3,9 @@ import { LoginComponent } from "./components/auth/login/login.component";
 import { RegisterComponent } from "./components/auth/register/register.component";
 import { ObservableDemoComponent } from "./components/observable-demo/observable-demo.component";
 import { PipeDemoComponent } from "./components/pipe-demo/pipe-demo.component";
+import { OverviewComponent } from "./components/product/overview/overview.component";
+import { ProductComponent } from "./components/product/product.component";
+import { SpecificationComponent } from "./components/product/specification/specification.component";
 import { UsersComponent } from "./components/users/users.component";
 import { LoginGaurdService } from "./services/login-gaurd.service";
 
@@ -27,6 +30,18 @@ export const APP_ROUTES : Routes = [
     path : "users",
     component : UsersComponent,
     canActivate: [LoginGaurdService]
+  },{
+    path : "product",
+    component : ProductComponent,
+    children : [
+      {
+        path : "overview/:id/:pName",                  // http://localhost:4200/product/overview
+        component : OverviewComponent
+      },{
+        path : "specification",       // http://localhost:4200/product/specification
+        component : SpecificationComponent
+      }
+    ]
   },{
     path : "**",
     redirectTo : "login",
