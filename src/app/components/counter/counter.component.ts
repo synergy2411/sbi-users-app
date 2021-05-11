@@ -34,4 +34,11 @@ export class CounterComponent implements OnInit {
   onAdd(value: number){
     this.store.dispatch(new CounterActions.onAdd(value));
   }
+  onSubtract(value : number){
+    this.store.dispatch(new CounterActions.onSubtract(value));
+  }
+
+  onReset(){
+    this.store.dispatch(new CounterActions.onReset());
+  }
 }

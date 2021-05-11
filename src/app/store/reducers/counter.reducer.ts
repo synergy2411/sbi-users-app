@@ -10,7 +10,7 @@ const defaultValue : ICounter = {
 function counterReducer(
   state: ICounter = defaultValue,
   action: CounterActions.MyActionTypes) :ICounter  {
-    console.log("[REDUCER]");
+    // console.log("[REDUCER]");
 
     switch (action.type) {
       case CounterActions.INCREMENT:{
@@ -26,6 +26,16 @@ function counterReducer(
       case CounterActions.ADD_COUNTER :{
         return {
           counter : state.counter + action.value
+        }
+      }
+      case CounterActions.SUBTRACT :{
+        return {
+          counter : state.counter - action.value
+        }
+      }
+      case CounterActions.RESET :{
+        return {
+          counter : 0
         }
       }
       default:

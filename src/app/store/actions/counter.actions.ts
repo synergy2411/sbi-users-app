@@ -16,9 +16,18 @@ export class onDecrement{
   readonly type = DECREMENT;
 }
 
+export class onReset{
+  readonly type = RESET;
+}
+
 export class onAdd{
   readonly type = ADD_COUNTER;
   constructor(public value : number){}
 }
 
-export type MyActionTypes = onIncrement | onDecrement | onAdd;
+export class onSubtract{
+  readonly type = SUBTRACT;
+  constructor(public value : number){}
+}
+
+export type MyActionTypes = onIncrement | onDecrement | onAdd | onReset | onSubtract;
