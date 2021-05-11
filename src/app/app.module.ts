@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { EmployeeModule } from './modules/employee/employee.module';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
@@ -44,6 +45,7 @@ import { SpecificationComponent } from './components/product/specification/speci
   ],
   imports: [          // Modules - Built-in / Custom
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,
+    EmployeeModule,
     RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [

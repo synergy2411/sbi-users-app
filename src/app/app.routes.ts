@@ -7,6 +7,7 @@ import { OverviewComponent } from "./components/product/overview/overview.compon
 import { ProductComponent } from "./components/product/product.component";
 import { SpecificationComponent } from "./components/product/specification/specification.component";
 import { UsersComponent } from "./components/users/users.component";
+import { NewEmployeeComponent } from "./modules/employee/components/new-employee/new-employee.component";
 import { LoginGaurdService } from "./services/login-gaurd.service";
 
 export const APP_ROUTES : Routes = [
@@ -42,6 +43,9 @@ export const APP_ROUTES : Routes = [
         component : SpecificationComponent
       }
     ]
+  },{
+    path : 'new-employee',
+    component : NewEmployeeComponent
   },{
     path : "**",
     redirectTo : "login",

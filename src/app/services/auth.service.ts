@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import * as firebase from 'firebase';
+import firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class AuthService {
 
     // localStorage.setItem("user", JSON.stringify({email, password}));
 
-    firebase.default.auth().createUserWithEmailAndPassword(email, password)
+    firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(response => {
         console.log("[USER CREATED]", response);
       }).catch(err => console.log(err));
@@ -24,10 +24,10 @@ export class AuthService {
 
   onLogin(email : string, password : string){
 
-    firebase.default.auth().signInWithEmailAndPassword(email, password)
+    firebase.auth().signInWithEmailAndPassword(email, password)
       .then(response => {
         // console.log("[LOGIN SUCCESS]", response);
-        firebase.default.auth().currentUser.getIdToken()
+        firebase.auth().currentUser.getIdToken()
           .then(token => {
             // console.log("[TOKEN]", token);
             this.token = token;
@@ -59,7 +59,7 @@ export class AuthService {
 
     // localStorage.removeItem("users");
 
-    firebase.default.auth().signOut()
+    firebase.auth().signOut()
       .then(() => {
         this.token = null;
         this.router.navigate(['/login']);
