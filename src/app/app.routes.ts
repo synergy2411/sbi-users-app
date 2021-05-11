@@ -47,6 +47,9 @@ export const APP_ROUTES : Routes = [
     path : 'new-employee',
     component : NewEmployeeComponent
   },{
+    path : "lazy",
+    loadChildren : () => import("./modules/lazy/lazy.module").then(m => m.LazyModule)
+  },{
     path : "**",
     redirectTo : "login",
     pathMatch : 'full'              // http://localhost:4200/pathdoesnotexist
