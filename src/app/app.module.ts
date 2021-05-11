@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
 import { RouterModule } from '@angular/router';
 import { EmployeeModule } from './modules/employee/employee.module';
 
@@ -25,6 +26,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { ProductComponent } from './components/product/product.component';
 import { OverviewComponent } from './components/product/overview/overview.component';
 import { SpecificationComponent } from './components/product/specification/specification.component';
+import CounterReducer from "./store/reducers/counter.reducer";
+import { CounterComponent } from './components/counter/counter.component';
 
 @NgModule({
   declarations: [     // Components, Pipes & Directives
@@ -41,12 +44,16 @@ import { SpecificationComponent } from './components/product/specification/speci
     HeaderComponent,
     ProductComponent,
     OverviewComponent,
-    SpecificationComponent
+    SpecificationComponent,
+    CounterComponent
   ],
   imports: [          // Modules - Built-in / Custom
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,
     EmployeeModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
+    StoreModule.forRoot({
+      ctr : CounterReducer
+    })
   ],
   providers: [
     {
