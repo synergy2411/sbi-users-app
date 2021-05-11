@@ -2,4 +2,12 @@
   <div class="row">
     <p class="display-3">Counter : {{ counter }} </p>
   </div>
+  <div class="button-group">
+    <button class="btn btn-primary btn-sm"
+      (click) ="onIncrease()">Increase</button>
+    <button class="btn btn-success btn-sm"
+      (click) ="onDecrease()">Decrease</button>
+    <button class="btn btn-dark btn-sm"
+      (click) ="onAdd(10)">Add (10)</button>
+  </div>
 </div>
