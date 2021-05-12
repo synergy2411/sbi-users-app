@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "staging": "kcc-sbi",
+    "production": "angular8-deploy-project"
+  }
+}

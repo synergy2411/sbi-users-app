@@ -30,6 +30,7 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { LoggerInterceptorService } from './services/logger-interceptor.service';
 import CounterReducer from "./store/reducers/counter.reducer";
 import { TheTestComponent } from './components/the-test/the-test.component';
+import { TrackbyDemoComponent } from './components/trackby-demo/trackby-demo.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { TheTestComponent } from './components/the-test/the-test.component';
     OverviewComponent,
     SpecificationComponent,
     CounterComponent,
-    TheTestComponent
+    TheTestComponent,
+    TrackbyDemoComponent
   ],
   imports: [          // Modules - Built-in / Custom
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,

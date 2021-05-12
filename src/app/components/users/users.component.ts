@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { User } from 'src/app/model/user';
 import { DataService } from 'src/app/services/data.service';
 // import { USER_DATA } from '../../model/mocks';
@@ -7,7 +7,8 @@ import { DataService } from 'src/app/services/data.service';
   selector : "app-users",
   templateUrl : `./users.component.html`,
   styleUrls : [`./users.component.css`],
-  // providers : [DataService]
+  // providers : [DataService],
+  changeDetection : ChangeDetectionStrategy.OnPush
 })
 export class UsersComponent implements OnInit{
 

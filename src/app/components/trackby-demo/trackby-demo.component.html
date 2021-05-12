@@ -1,0 +1,14 @@
+<p>Trackby-demo works!</p>
+
+<div class="container">
+  <ul class="list-group">
+    <li class="list-group-item"
+      *ngFor="let item of items;trackBy : trackById">
+      {{ item.label }}
+    </li>
+  </ul>
+
+  <button class="btn btn-primary"
+    (click)="onLoadItems()">Load New Items</button>
+
+</div>
