@@ -6,3 +6,6 @@
 > firebase use production/staging
 > firebase deploy --only hosting
 > firebase open
+
+
+SYNERGY2411@OUTLOOK.COM

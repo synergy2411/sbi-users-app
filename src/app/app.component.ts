@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from './services/data.service';
+import { DomSanitizer } from '@angular/platform-browser';
 // import * as firebase from 'firebase';
 import firebase from 'firebase';
 import { AuthService } from './services/auth.service';
-import { DomSanitizer } from '@angular/platform-browser';
-
+import { DataService } from './services/data.service';
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-root',
@@ -30,9 +30,30 @@ export class AppComponent implements OnInit {
       apiKey: 'AIzaSyCf-jTpnneAT-UKcp9pCGpePNpUkfPUanc',
       authDomain: 'kcc-sbi.firebaseapp.com'
     });
+    const encryted = this.encryptData({email : "test@test.com", age : 32});
+    console.log("[ENCRYPTED]",encryted);
+    const decryptedData = this.decryptData(encryted);
+    console.log("[DECRYPTED]", decryptedData);
+
   }
 
   onIncrease() {
     this.dataService.counter++;
   }
+
+  encryptData(data){
+    const encryptedData =
+      CryptoJS.AES.encrypt(JSON.stringify(data), "MY_SECRET_KEY").toString();
+    return encryptedData;
+  }
+
+  decryptData(data){
+    const bytes = CryptoJS.AES.decrypt(data, "MY_SECRET_KEY");
+    if(bytes.toString()){
+      const stringData = bytes.toString(CryptoJS.enc.Utf8)
+      return JSON.parse(stringData);
+    }
+    return data;
+  }
+
 }
