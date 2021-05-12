@@ -1,33 +1,36 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { StoreModule } from '@ngrx/store';
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { EmployeeModule } from './modules/employee/employee.module';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 import { AppComponent } from './app.component';
-import { UsersComponent } from './components/users/users.component';
-import { UserImgComponent } from './components/users/user-img/user-img.component';
-import { UserInfoComponent } from './components/users/user-info/user-info.component';
-import { HighlightDirective } from './directives/highlight.directive';
-import { BetterHighlightDirective } from './directives/better-highlight.directive';
-import { DelayDirective } from './directives/delay.directive';
-import { PipeDemoComponent } from './components/pipe-demo/pipe-demo.component';
-import { CountryCodePipe } from './pipes/country-code.pipe';
-import { FilterPipe } from './pipes/filter.pipe';
+import { APP_ROUTES } from './app.routes';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
+import { CounterComponent } from './components/counter/counter.component';
+import { HeaderComponent } from './components/header/header.component';
 import { ObservableDemoComponent } from './components/observable-demo/observable-demo.component';
+import { PipeDemoComponent } from './components/pipe-demo/pipe-demo.component';
+import { OverviewComponent } from './components/product/overview/overview.component';
+import { ProductComponent } from './components/product/product.component';
+import { SpecificationComponent } from './components/product/specification/specification.component';
+import { UserImgComponent } from './components/users/user-img/user-img.component';
+import { UserInfoComponent } from './components/users/user-info/user-info.component';
+import { UsersComponent } from './components/users/users.component';
+import { BetterHighlightDirective } from './directives/better-highlight.directive';
+import { DelayDirective } from './directives/delay.directive';
+import { HighlightDirective } from './directives/highlight.directive';
+import { EmployeeModule } from './modules/employee/employee.module';
+import { CountryCodePipe } from './pipes/country-code.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { LoggerInterceptorService } from './services/logger-interceptor.service';
-import { APP_ROUTES } from './app.routes';
-import { HeaderComponent } from './components/header/header.component';
-import { ProductComponent } from './components/product/product.component';
-import { OverviewComponent } from './components/product/overview/overview.component';
-import { SpecificationComponent } from './components/product/specification/specification.component';
 import CounterReducer from "./store/reducers/counter.reducer";
-import { CounterComponent } from './components/counter/counter.component';
+import { TheTestComponent } from './components/the-test/the-test.component';
+
 
 @NgModule({
   declarations: [     // Components, Pipes & Directives
@@ -45,7 +48,8 @@ import { CounterComponent } from './components/counter/counter.component';
     ProductComponent,
     OverviewComponent,
     SpecificationComponent,
-    CounterComponent
+    CounterComponent,
+    TheTestComponent
   ],
   imports: [          // Modules - Built-in / Custom
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,
@@ -53,7 +57,8 @@ import { CounterComponent } from './components/counter/counter.component';
     RouterModule.forRoot(APP_ROUTES),
     StoreModule.forRoot({
       ctr : CounterReducer
-    })
+    }),
+    StoreDevtoolsModule.instrument({logOnly : true})
   ],
   providers: [
     {
